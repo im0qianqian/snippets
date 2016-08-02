@@ -1,5 +1,5 @@
-/*
-51nod 1012 ×îÐ¡¹«±¶ÊýLCM
+ï»¿/*
+51nod 1012 æœ€å°å…¬å€æ•°LCM
 */
 
 #include<cmath>
