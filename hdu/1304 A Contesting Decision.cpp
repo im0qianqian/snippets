@@ -25,8 +25,9 @@ bool cmp(po a,po b)
 }
 int main()
 {
+    cout.sync_with_stdio(false);
     int t;
-    scanf("%d",&t);
+    cin>>t;
     for(int i=0; i<t; i++)
     {
         cin>>a[i].name;
@@ -34,7 +35,7 @@ int main()
         a[i].init();
         for(int j=0; j<4; j++)
         {
-            scanf("%d%d",&x,&y);
+            cin>>x>>y;
             if(y!=0)
             {
                 a[i].count++;
