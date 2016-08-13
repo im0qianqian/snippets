@@ -18,10 +18,10 @@ int main()
         cin>>a[i];
         sum[i]=sum[i-1]+a[i];
     }
-    for(int i=2; i<=n; i++)
-        for(int start=1; start<=n-i+1; start++)
+    for(int i=1; i<=n; i++)
+        for(int start=1; start<=n-i; start++)
         {
-            int minn=INF,end=start+i-1;
+            int end=start+i,minn=INF;
             for(int k=start; k<end; k++)
                 minn=min(minn,dp[start][k]+dp[k+1][end]+sum[end]-sum[start-1]);
             dp[start][end]=minn;
