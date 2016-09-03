@@ -27,7 +27,7 @@ void solve()
     priority_queue<P,vector<P>,greater<P> >que; //小顶堆优化
     fill(dist,dist+n,INF);
     fill(dist2,dist2+n,INF);
-    dist[0]=0;
+    dist[0]=0;                          //从起点0开始
     que.push(P(0,0));
     while(!que.empty())
     {
@@ -40,19 +40,19 @@ void solve()
         {
             edge e=G[v][i];
             int d2=d+e.cost;
-            if(dist[e.to]>d2)
+            if(dist[e.to]>d2)           //若存在更短的路径
             {
                 swap(dist[e.to],d2);
-                que.push(P(dist[e.to],e.to));
+                que.push(P(dist[e.to],e.to));   //入队
             }
-            if(dist2[e.to]>d2&&dist[e.to]<d2)
+            if(dist2[e.to]>d2&&dist[e.to]<d2)   //若最短路径绝对小于d2并且有新路径在两者之间
             {
-                dist2[e.to]=d2;
-                que.push(P(dist2[e.to],e.to));
+                dist2[e.to]=d2;         //更新次短路径
+                que.push(P(dist2[e.to],e.to));  //入队
             }
         }
     }
-    printf("%d\n",dist2[n-1]);
+    printf("%d\n",dist2[n-1]);          //到终点的次短路径
 }
 int main()
 {
