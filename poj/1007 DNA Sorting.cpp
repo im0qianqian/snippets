@@ -22,7 +22,7 @@ int nixu(char *c)
             if(c[i]>c[j])k++;
     return k;
 }
-bool cmp(DNA a,DNA b)
+bool cmp(DNA a,DNA b)   //重写比较函数
 {
     return a.data<b.data;
 }
