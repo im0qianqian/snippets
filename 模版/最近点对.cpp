@@ -32,7 +32,7 @@ double findd(int left,int right)
     dl=min(dl,dr);                      //左边和右边最近点对的最小值
     int k=0;
     for(int i=left; i<=right; i++)
-        if(fabs(a[i].x-a[i+1].x)<dl)    //取出中间区域的点
+        if(fabs(a[i].x-a[mid].x)<dl)    //取出中间区域的点
             t[k++]=i;
     sort(t,t+k,cmpy);
     for(int i=0; i<k; i++)
