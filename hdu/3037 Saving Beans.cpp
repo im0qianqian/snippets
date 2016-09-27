@@ -15,7 +15,6 @@ HDU 3037 Saving Beans
 现在就是要求C（n+m，m）%p。
 
 因为n，m很大，这里可以直接套用Lucas定理的模板即可。
-
 */
 
 #include<iostream>
