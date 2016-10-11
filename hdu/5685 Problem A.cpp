@@ -67,7 +67,7 @@ int main()
         {
             scanf("%d%d",&start,&en);
             LL smax=sum(en),mmax=sum(start-1);  //分别求[1,start-1]与[1,en]的∏ ,答案为smax/mmax
-            LL nmax=mult(mmax,9971);            //求mmax的逆元，然后(smax / mmax)%mod == (smax * nmax) %mod
+            LL nmax=mult(mmax,9973-2);            //求mmax的逆元，然后(smax / mmax)%mod == (smax * nmax) %mod
             cout<<smax*nmax%mod<<endl;
         }
     }
