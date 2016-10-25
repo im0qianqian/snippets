@@ -1,55 +1,60 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include<math.h>
-#include<algorithm>
-#include<iostream>
-#define INF (1<<30)
-using namespace std;
-struct point
+#define MMAX 105
+
+/*
+第一类Stirling数 s(p,k)
+
+s(p,k)的一个的组合学解释是：将p个物体排成k个非空循环排列的方法数。
+
+s(p,k)的递推公式： s(p,k)=(p-1)*s(p-1,k)+s(p-1,k-1) ,1<=k<=p-1
+
+边界条件：s(p,0)=0 ,p>=1  s(p,p)=1  ,p>=0
+
+递推关系的说明：
+
+考虑第p个物品，p可以单独构成一个非空循环排列，这样前p-1种物品构成k-1个非空循环排列，方法数为s(p-1,k-1)；
+
+也可以前p-1种物品构成k个非空循环排列，而第p个物品插入第i个物品的左边，这有(p-1)*s(p-1,k)种方法。
+*/
+
+int stir1[MMAX][MMAX];
+void init1()
 {
-    double x,y;
-    double distance(point k)    //求距离
+    for(int p=0; p<MMAX; p++)
     {
-        return sqrt((x-k.x)*(x-k.x)+(y-k.y)*(y-k.y));
+        stir1[p][0]=stir1[p][p]=1;
+        for(int k=1; k<p; k++)
+            stir1[p][k]=stir1[p-1][k-1]+(p-1)*stir1[p-1][k];   //递推公式
     }
-} a[110000];
-int t[110000];                 //存储中心d范围内的点
-bool cmp(point s,point t)
-{
-    return s.x<t.x;
 }
-bool cmpy(int s,int t)
+
+
+
+/*
+第二类stir2ling数 S(p,k)
+
+S(p,k)的一个组合学解释是：将p个物体划分成k个非空的不可辨别的（可以理解为盒子没有编号）集合的方法数。
+
+k!S(p,k)是把p个人分进k间有差别(如：被标有房号）的房间(无空房）的方法数。
+
+S(p,k)的递推公式是：S(p,k)=k*S(p-1,k)+S(p-1,k-1) ,1<= k<=p-1
+
+边界条件：S(p,p)=1 ,p>=0  S(p,0)=0 ,p>=1
+
+
+递推关系的说明：
+
+考虑第p个物品，p可以单独构成一个非空集合，此时前p-1个物品构成k-1个非空的不可辨别的集合，方法数为S(p-1,k-1)；
+
+也可以前p-1种物品构成k个非空的不可辨别的集合，第p个物品放入任意一个中，这样有k*S(p-1,k)种方法。
+*/
+
+int stir2[MMAX][MMAX];
+void init2()
 {
-    return a[s].y<a[t].y;
-}
-double findd(int left,int right)
-{
-    if(left==right)return INF;
-    else if(left==right-1)return a[left].distance(a[right]);    //分割为刚好两个点的区域
-    int mid=(left+right)/2;
-    double dl=findd(left,mid);
-    double dr=findd(mid+1,right);
-    dl=min(dl,dr);                      //左边和右边最近点对的最小值
-    int k=0;
-    for(int i=left; i<=right; i++)
-        if(fabs(a[i].x-a[mid].x)<dl)    //取出中间区域的点
-            t[k++]=i;
-    sort(t,t+k,cmpy);
-    for(int i=0; i<k; i++)
-        for(int j=i+1; j<k&&a[t[j]].y-a[t[i]].y<dl; j++)
-            dl=min(dl,a[t[i]].distance(a[t[j]]));
-    return dl;
-}
-int main()
-{
-    int T;
-    while(~scanf("%d",&T)&&T)
+    for(int p=1; p<MMAX; p++)
     {
-        for(int i=0; i<T; i++)
-            scanf("%lf%lf",&a[i].x,&a[i].y);
-        sort(a,a+T,cmp);
-        double l = findd(0,T-1)/2.0;
-        printf("%.2f\n",l);
+        stir2[p][1]=stir2[p][p]=1;
+        for(int k=2; k<p; k++)
+            stir2[p][k]=stir2[p-1][k-1]+k*stir2[p-1][k];   //递推公式
     }
-    return 0;
 }
