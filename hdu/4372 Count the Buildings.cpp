@@ -44,7 +44,7 @@ void init() //第一类Stirling数
         c[i][0]=c[i][i]=s[i][i]=1;
         for(int j=1; j<i; j++)
         {
-            c[i][j]=(c[i-1][j-1]%mod+c[i-1][j]%mod)%mod;
+            c[i][j]=(c[i-1][j-1]+c[i-1][j])%mod;
             s[i][j]=((i-1)*s[i-1][j])%mod+s[i-1][j-1]%mod;
         }
     }
