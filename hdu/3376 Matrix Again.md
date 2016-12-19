@@ -75,7 +75,7 @@
 
 如果说这道题难的话就是建图咯！​:happy:​ 加入一个源点，加入一个汇点，用这两个点邻接边的容量来描述图中路径的个数。
 
-![建图](http://lab.dreamwings.cn/queue/wp-content/uploads/2016/12/20161204135539.png)
+![建图](http://lab.dreamwings.cn/wp-content/uploads/2016/12/20161204135539.png)
 
 第一次为一篇文章去画图，画的好难看，只画出了第一个点的建图模型，其他的类似，具体的看代码咯！
 
