@@ -8,6 +8,8 @@
 >
 > Flip the chosen piece and also all adjacent pieces to the left, to the right, to the top, and to the bottom of the chosen piece (if there are any).
 >
+> ![img](http://poj.org/images/1753_1.jpg)
+>
 > Consider the following position as an example: 
 >
 > bwbw 
