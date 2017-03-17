@@ -73,7 +73,7 @@ $$L=\frac{(4h^2+l^2)*arcsin(\frac{4hl}{4h^2+l^2})}{4h}$$
 
 用二分的方法逐一验证，不过二分只适用于单调的函数怎么办，这个函数是这种类型么？
 
-于是，现场花一个图看看
+于是，现场画一个图看看
 
 ![img](https://www.dreamwings.cn/wp-content/uploads/2017/01/20170126221508.png)
 
