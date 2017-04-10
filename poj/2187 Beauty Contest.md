@@ -1,11 +1,57 @@
-/*
-POJ 2187 Beauty Contest
+# Beauty Contest
 
-题意：给出一些点，求平面最远点对距离的平方
+## **Description**
 
-思想：我们知道，平面中最远点对一定是存在于这些点所围成的凸包中，那么，我们首先用Graham's Scan算法求出凸包中的所有点，然后可以用O(n)的旋转卡壳来解决剩下的问题(当然暴力枚举也可以啦)。
+> Bessie, Farmer John's prize cow, has just won first place in a bovine beauty contest, earning the title 'Miss Cow World'. As a result, Bessie will make a tour of N (2 <= N <= 50,000) farms around the world in order to spread goodwill between farmers and their cows. For simplicity, the world will be represented as a two-dimensional plane, where each farm is located at a pair of integer coordinates (x,y), each having a value in the range -10,000 ... 10,000. No two farms share the same pair of coordinates.
+>
+> Even though Bessie travels directly in a straight line between pairs of farms, the distance between some farms can be quite large, so she wants to bring a suitcase full of hay with her so she has enough food to eat on each leg of her journey. Since Bessie refills her suitcase at every farm she visits, she wants to determine the maximum possible distance she might need to travel so she knows the size of suitcase she must bring.Help Bessie by computing the maximum distance among all pairs of farms.
 
-*/
+
+
+## **Input**
+
+> Line 1: A single integer, N
+>
+> Lines 2..N+1: Two space-separated integers x and y specifying coordinate of each farm
+
+
+
+## **Output**
+
+> Line 1: A single integer that is the squared distance between the pair of farms that are farthest apart from each other.
+
+
+
+## **Sample Input**
+
+    4
+    0 0
+    0 1
+    1 1
+    1 0
+
+
+
+## **Sample Output**
+
+    2
+
+
+## **题意**
+
+给出一些点，求平面最远点对距离的平方。
+
+
+
+## **思路**
+
+我们知道，平面中最远点对一定是存在于这些点所围成的凸包中，那么，我们首先用 `Graham's Scan` 算法求出凸包中的所有点，然后可以用 `O(n)` 的旋转卡壳来解决剩下的问题(当然暴力枚举也可以啦)。
+
+
+
+## **AC 代码**
+
+```cpp
 #include<iostream>
 #include<algorithm>
 #include<cmath>
@@ -104,3 +150,5 @@ int main()
         /* END */
     }
 }
+```
+
