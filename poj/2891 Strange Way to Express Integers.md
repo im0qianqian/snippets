@@ -64,15 +64,15 @@ $X\%m_0=r_0$ 与 $X\%m_1=r_1$ ，等价于 $X=m_0×k_0+r_o=m_1×k_1+r_1$ ，其�
 
 
 
-**扩展欧几里得算法中说：**存在整数对 $(x,y)$ 使得 $ax+by=gcd(a,b)$
+**扩展欧几里得算法中说：**存在整数对 $(x,y)$ 使得 $ax+by=\gcd(a,b)$
 
-于是我们可以根据上面联立得出的式子构造出 $m_0x+m_1y=gcd(m_0,m_1)$
+于是我们可以根据上面联立得出的式子构造出 $m_0x+m_1y=\gcd(m_0,m_1)$
 
 
 
-通过 `ex_gcd` 可以求出 $gcd(m_0,m_1)$ 以及 $x,y$  。
+通过 $ex\_gcd$ 可以求出 $\gcd(m_0,m_1)$ 以及 $x,y$  。
 
-于是便有 $k_0=x×\frac{r_1-r_0}{gcd(m_0,m_1)}$ 
+于是便有 $k_0=x×\frac{r_1-r_0}{\gcd(m_0,m_1)}$ 
 
 带回原来的式子可以解得 $X=m_0×k_0+r_0$ ，此时 $X$ 的通解为 $X'=X+k×lcm(m_0,m_1)$ （ $k$ 为一整数，想要让 $X'\%m_0=r_0,X'\%m_1=r_1$ 这两个式子同时成立，$X$ 每次增加的步长应该是 $lcm(m_0,m_1)$ ）
 
@@ -86,17 +86,17 @@ $X\%m_0=r_0$ 与 $X\%m_1=r_1$ ，等价于 $X=m_0×k_0+r_o=m_1×k_1+r_1$ ，其�
 
 ---
 
-**关于代码中求 $k_0$ 时为什么要** $mod\frac{m_i}{gcd(M,m_i)}$
+**关于代码中求 $k_0$ 时为什么要** $mod\frac{m_i}{\gcd(M,m_i)}$
 
-$a×x_0+b×y_0=gcd(a,b)$ 等同于 $a×x_0+\frac{a×b}{gcd(a,b)}k+b×y_0-\frac{a×b}{gcd(a,b)}k=gcd(a,b)$
+$a×x_0+b×y_0=\gcd(a,b)$ 等同于 $a×x_0+\frac{a×b}{\gcd(a,b)}k+b×y_0-\frac{a×b}{\gcd(a,b)}k=\gcd(a,b)$
 
-即 $a×(x_0+\frac{b}{gcd(a,b)}k)+b×(y_0-\frac{a}{gcd(a,b)}k)=gcd(a,b)$
+即 $a×(x_0+\frac{b}{\gcd(a,b)}k)+b×(y_0-\frac{a}{\gcd(a,b)}k)=\gcd(a,b)$
 
-通解为 $x=x_0+\frac{b}{gcd(a,b)}k$ ， $y=y_0-\frac{a}{gcd(a,b)}k$ ，其中 $k=...-2,-1,0,1,2...$
+通解为 $x=x_0+\frac{b}{\gcd(a,b)}k$ ， $y=y_0-\frac{a}{\gcd(a,b)}k$ ，其中 $k=...-2,-1,0,1,2...$
 
-于是在所有解中 $x$ 的最小正整数解为 $(x_0+\frac{b}{gcd(a,b)})\%\frac{b}{gcd(a,b)}$ ， $y$ 也一样。
+于是在所有解中 $x$ 的最小正整数解为 $(x_0+\frac{b}{\gcd(a,b)})\%\frac{b}{\gcd(a,b)}$ ， $y$ 也一样。
 
-所以 $mod\frac{m_i}{gcd(M,m_i)}$ 保证了 $k_0$ 落在了一个指定的合理区间内。
+所以 $mod\frac{m_i}{\gcd(M,m_i)}$ 保证了 $k_0$ 落在了一个指定的合理区间内。
 
 
 
