@@ -62,7 +62,7 @@
 
 对于负数，我们可以用 $2^{64}$ 与原数进行某些运算得出原反补码，因为涉及到了大数，本来想用 `java` 写的，不过发现可以用 `python` 提交，于是万千 `C/C++` 中出现了我一个特例。
 
-![img](http://img.blog.csdn.net/20170501212315457?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMjg5NTQ2MDE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![img](https://www.dreamwings.cn/usr/uploads/2017/05/1641872833.png)
 
 **PS:** 输入有可能会有 `-0` 的情况，而它的原反补码并不等于 `+0` 。
 
