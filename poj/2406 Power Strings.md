@@ -45,7 +45,7 @@
 
 KMP匹配算法之 `next[]` ;
 
-模式串结尾指针回溯最小移动次数即最小字串长度 `N=s.length%(s.length-next[s.length]);`
+模式串结尾指针回溯最小移动次数即最小字串长度 `N=s.length/(s.length-next[s.length]);`
 
 
 
