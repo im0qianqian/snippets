@@ -79,7 +79,7 @@
 
 `dp[root][k][1]=max(dp[root][k][1],dp[root][k-s][1]+dp[son][s-2][1]);`
 
-![img](https://www.dreamwings.cn/usr/uploads/2017/04/665491174.jpg)
+![img](https://www.dreamwings.cn/wp-content/uploads/2017/05/665491174.jpg)
 
 `s` 是我们为当前判断的子节点所分配的步数， `s-1` 是从 `root` 到 `son` 需要一步， `s-2` 是从 `root` 到 `son` ，然后从 `son` 返回到 `root` 需要的两步。
 
