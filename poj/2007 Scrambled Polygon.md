@@ -6,7 +6,7 @@
 >
 > A closed polygon is called convex if the line segment joining any two points of the polygon lies in the polygon. Figure 1 shows a closed polygon which is convex and one which is not convex. (Informally, a closed polygon is convex if its border doesn't have any "dents".)
 >
-> ![img](https://www.dreamwings.cn/usr/uploads/2016/09/2007_1.jpg)
+> ![img](https://www.dreamwings.cn/wp-content/uploads/2016/09/2007_1.jpg)
 >
 > The subject of this problem is a closed convex polygon in the coordinate plane, one of whose vertices is the origin (x = 0, y = 0). Figure 2 shows an example. Such a polygon will have two properties significant for this problem.
 >
@@ -14,9 +14,9 @@
 >
 > To describe the second property, suppose you "take a trip" around the polygon: start at (0, 0), visit all other vertices exactly once, and arrive at (0, 0). As you visit each vertex (other than (0, 0)), draw the diagonal that connects the current vertex with (0, 0), and calculate the slope of this diagonal. Then, within each quadrant, the slopes of these diagonals will form a decreasing or increasing sequence of numbers, i.e., they will be sorted. Figure 3 illustrates this point.
 >
-> ![img](https://www.dreamwings.cn/usr/uploads/2016/09/2007_2.jpg)
+> ![img](https://www.dreamwings.cn/wp-content/uploads/2016/09/2007_2.jpg)
 >
-> ![img](https://www.dreamwings.cn/usr/uploads/2016/09/2007_3.jpg)
+> ![img](https://www.dreamwings.cn/wp-content/uploads/2016/09/2007_3.jpg)
 
 
 
