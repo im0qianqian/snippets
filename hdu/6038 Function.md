@@ -97,10 +97,10 @@ const int maxn=110000;
 const int mod = 1e9+7;
 
 int a[maxn],b[maxn];
-int numa[maxn],numb[maxn];      //长度为 i 的循环节个数
+vector<int> na,nb;
 bool vis[maxn];
 
-void findnum(int *a,int n,int *res)     //寻找 res 中的循环节个数以及长度
+void findnum(int *a,int n,vector<int> &res)     //寻找 res 中的循环节个数以及长度
 {
     memset(vis,false,sizeof(vis));
     for(int i=0; i<n; i++)
@@ -114,7 +114,7 @@ void findnum(int *a,int n,int *res)     //寻找 res 中的循环节个数以及
                 vis[now]=true;
                 now=a[now];
             }
-            res[len]++;
+            res.push_back(len);
         }
     }
 }
@@ -125,32 +125,26 @@ int main()
     int n,m,ti=0;
     while(cin>>n>>m)
     {
-        memset(numa,0,sizeof(numa));
-        memset(numb,0,sizeof(numb));
+        na.clear();
+        nb.clear();
         for(int i=0; i<n; i++)
             cin>>a[i];
         for(int i=0; i<m; i++)
             cin>>b[i];
-        findnum(a,n,numa);
-        findnum(b,m,numb);
+        findnum(a,n,na);
+        findnum(b,m,nb);
         LL ans=1;
-        for(int i=1; i<=n; i++)     //遍历 a 中循环节所有可能长度
+        int lena=na.size();
+        int lenb=nb.size();
+        for(int i=0; i<lena; i++)
         {
-            if(numa[i])             //若存在
+            LL res=0;
+            for(int j=0; j<lenb; j++)
             {
-                LL res=0;
-                for(int j=1; j*j<=i; j++)   //找 b 中长度为其因子的循环节
-                {
-                    if(i%j==0)
-                    {
-                        res = (res+(numb[j]*j)%mod)%mod;
-                        if(j*j!=i)          //这里是一个优化，比如 i=6,j=2 此时直接计算出 6/2 的情况，减少时间消耗
-                            res=(res+(numb[i/j]*(i/j))%mod)%mod;
-                    }
-                }
-                for(int j=0; j<numa[i]; j++)
-                    ans=(ans*res)%mod;
+                if(na[i]%nb[j]==0)
+                    res=(res+nb[j])%mod;
             }
+            ans=(ans*res)%mod;
         }
         cout<<"Case #"<<++ti<<": "<<ans<<endl;
     }
