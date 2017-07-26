@@ -6,7 +6,7 @@
 >
 > Mr.Tang wants you to maximize the summation. Notice that no string in this problem could have leading zeros except for string "0". It is guaranteed that at least one character does not appear at the beginning of any string.
 >
-> The summation may be quite large, so you should output it in modulo 109+7.
+> The summation may be quite large, so you should output it in modulo 10^9+7.
 
 
 

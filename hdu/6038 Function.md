@@ -10,7 +10,7 @@
 >
 > Two functions are different if and only if there exists at least one integer from 0 to n−1 mapped into different integers in these two functions.
 >
-> The answer may be too large, so please output it in modulo 109+7.
+> The answer may be too large, so please output it in modulo 10^9+7.
 
 
 
