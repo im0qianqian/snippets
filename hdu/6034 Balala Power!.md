@@ -2,8 +2,6 @@
 
 ## **Description**
 
-> ![img](http://acm.hdu.edu.cn/data/images/C642-1002-1.jpg)
->
 > Talented Mr.Tang has n strings consisting of only lower case characters. He wants to charge them with Balala Power (he could change each character ranged from a to z into each number ranged from 0 to 25, but each two different characters should not be changed into the same number) so that he could calculate the sum of these strings as integers in base 26 hilariously.
 >
 > Mr.Tang wants you to maximize the summation. Notice that no string in this problem could have leading zeros except for string "0". It is guaranteed that at least one character does not appear at the beginning of any string.
@@ -18,7 +16,7 @@
 >
 > For each test case, the first line contains one positive integers n, the number of strings. (1≤n≤100000)
 >
-> Each of the next n lines contains a string si consisting of only lower case letters. (1≤|si|≤100000,∑|si|≤106)
+> Each of the next n lines contains a string si consisting of only lower case letters. (1≤|si|≤100000,∑|si|≤10^6)
 
 
 
