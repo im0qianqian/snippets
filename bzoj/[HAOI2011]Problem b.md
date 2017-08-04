@@ -40,7 +40,7 @@
 
 然后问题便等价于询问有多少个数对 $(x,y)$ 满足 $1<=x<=\lfloor\frac{n}{k}\rfloor,1<=y<=\lfloor\frac{m}{k}\rfloor$ 且 $x$ 与 $y$ 互质。
 
-PS：这道题目的时间限制有 50s ，不过也千万别想枚举过掉它，因为 $O(n^3)$ 的复杂度在 $n=1e5$ 的情况下可能要跑好久好久。
+**PS：这道题目的时间限制有 50s ，不过也千万别想枚举过掉它，因为 $O(n^3)$ 的复杂度在 $n=1e5$ 的情况下可能要跑好久好久。**
 
 **我们考虑使用莫比乌斯反演**
 
@@ -48,13 +48,15 @@ PS：这道题目的时间限制有 50s ，不过也千万别想枚举过掉它�
 
 显然，我们有 $F(i)=\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor$
 
-反演以后即 $f(i)=\sum_{i|d}μ(\frac{d}{i})F(d)=\sum_{i|d}μ(\frac{d}{i})\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor$
+反演之后即 $f(i)=\sum_{i|d}μ(\frac{d}{i})F(d)=\sum_{i|d}μ(\frac{d}{i})\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor$
 
 枚举原题中 $k$ 的倍数，我们就可以在 $O(n)$ 的时间处理每一个询问了，不过 $O(n)$ 还不能胜任本题的数据范围，于是我们考虑进一步优化。
 
-我们发现，对于其中连续的 $s$ 项，有可能有 $\lfloor\frac{n}{d}\rfloor=\lfloor\frac{n}{d+s}\rfloor$ ，那么对于这 $s$ 项，我们可以直接算出，即 $(Sum_{d+s}-Sum_{d-1})×\frac{n}{d}×\frac{m}{d}$ 。
+我们发现，对于其中连续的 $s$ 项，有可能有 $\lfloor\frac{n}{d}\rfloor=\lfloor\frac{n}{d+s}\rfloor$ ，那么对于这 $s$ 项的贡献，我们可以直接得出，即 $(Sum_{d+s}-Sum_{d-1})×\frac{n}{d}×\frac{m}{d}$ ，其中 $Sum_i$ 代表莫比乌斯函数的前 $i$ 项和。
 
-观察式子，我们发现 $\lfloor\frac{n}{d}\rfloor$ 最多有 $2\sqrt{n}$ 个取值，于是 $\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor$ 至多有 $2(\sqrt{n}+\sqrt{m})$ 个取值。
+观察式子，我们发现 $\lfloor\frac{n}{d}\rfloor$ 最多有 $2\sqrt{n}$ 个取值，于是 $\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor$ 至多有 $2(\sqrt{n}+\sqrt{m})$ 个取值，所以我们只需要枚举这 $2(\sqrt{n}+\sqrt{m})$ 个取值就可以了。
+
+**PS：关于如何求出二元组 $(\frac{n}{x},\frac{m}{x})$ 取值范围相同的一段：对于当前点 $x$ ，其向右延伸最远为 $\min(\frac{n}{\frac{n}{x}},\frac{m}{\frac{m}{x}})$ ，因为 $\frac{n}{x}$ 为下界，那么 $\frac{n}{\frac{n}{x}}$ 就是上界咯。**
 
 
 
