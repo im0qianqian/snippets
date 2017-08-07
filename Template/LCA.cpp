@@ -1,4 +1,4 @@
-// POJ 1130
+// POJ 1330
 
 #include<iostream>
 #include<vector>
