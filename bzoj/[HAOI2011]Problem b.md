@@ -48,9 +48,9 @@
 
 显然，我们有 $F(i)=\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor$
 
-反演之后即 $f(i)=\sum_{i|d}μ(\frac{d}{i})F(d)=\sum_{i|d}μ(\frac{d}{i})\lfloor\frac{n}{i}\rfloor\lfloor\frac{m}{i}\rfloor$
+反演之后即 $f(i)=\sum_{i|d}μ(\frac{d}{i})F(d)=\sum_{i|d}μ(\frac{d}{i})\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor$
 
-枚举原题中 $k$ 的倍数，我们就可以在 $O(n)$ 的时间处理每一个询问了，不过 $O(n)$ 还不能胜任本题的数据范围，于是我们考虑进一步优化。
+枚举原题中 $k​$ 的倍数，我们就可以在 $O(n)​$ 的时间处理每一个询问了，不过 $O(n)​$ 还不能胜任本题的数据范围，于是我们考虑进一步优化。
 
 我们发现，对于其中连续的 $s$ 项，有可能有 $\lfloor\frac{n}{d}\rfloor=\lfloor\frac{n}{d+s}\rfloor$ ，那么对于这 $s$ 项的贡献，我们可以直接得出，即 $(Sum_{d+s}-Sum_{d-1})×\frac{n}{d}×\frac{m}{d}$ ，其中 $Sum_i$ 代表莫比乌斯函数的前 $i$ 项和。
 
