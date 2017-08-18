@@ -56,7 +56,7 @@
 
 观察式子，我们发现 $\lfloor\frac{n}{d}\rfloor$ 最多有 $2\sqrt{n}$ 个取值，于是 $\lfloor\frac{n}{d}\rfloor\lfloor\frac{m}{d}\rfloor$ 至多有 $2(\sqrt{n}+\sqrt{m})$ 个取值，所以我们只需要枚举这 $2(\sqrt{n}+\sqrt{m})$ 个取值就可以了。
 
-**PS：关于如何求出二元组 $(\frac{n}{x},\frac{m}{x})$ 取值范围相同的一段：对于当前点 $x$ ，其向右延伸最远为 $\min(\frac{n}{\frac{n}{x}},\frac{m}{\frac{m}{x}})$ ，因为 $\frac{n}{x}$ 为下界，那么 $\frac{n}{\frac{n}{x}}$ 就是上界咯。**
+**PS：关于如何求出二元组 $(\frac{n}{x},\frac{m}{x})$ 取值范围相同的一段：对于当前点 $x$ ，其向右延伸最远为 $\min(\cfrac{n}{\cfrac{n}{x}},\cfrac{m}{\cfrac{m}{x}})$ ，因为 $\frac{n}{x}$ 为下界，那么 $\cfrac{n}{\cfrac{n}{x}}$ 就是上界咯。**
 
 
 
