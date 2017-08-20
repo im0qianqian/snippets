@@ -7,6 +7,8 @@
 > The tree has N forks which are connected by branches. Kaka numbers the forks by 1 to N and the root is always numbered by 1. Apples will grow on the forks and two apple won't grow on the same fork. kaka wants to know how many apples are there in a sub-tree, for his study of the produce ability of the apple tree.
 >
 > The trouble is that a new apple may grow on an empty fork some time and kaka may pick an apple from the tree for his dessert. Can you help kaka?
+>
+> ![img](https://www.dreamwings.cn/wp-content/uploads/2017/08/3321_1.gif)
 
 
 
