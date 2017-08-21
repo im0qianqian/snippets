@@ -66,35 +66,33 @@ using namespace std;
 
 const int maxn=3010;
 bool mapp[maxn][maxn];
-bool use[maxn];     // 是否进入团
-int cn,bestn,n;
-
-void dfs(int i)
+bool flag,use[maxn];
+int n;
+int pre[maxn];
+void dfs(int x,int fa,int now,int dep)
 {
-    bool flag = true;
-    if(i>n)
+    pre[x]=fa;      // 记录前置节点
+    if(dep>=2)
     {
-        bestn=cn;
-        return ;
-    }
-    for(int j=1; j<i; j++)
-        if(use[j]&&!mapp[j][i])
+        int no = x;
+        flag = true;
+        while(pre[no]!=-1)
         {
-            flag=false;
-            break;
+            flag&=(now==mapp[pre[no]][x]);  // 当前集合是否可以构成完全图
+            no = pre[no];
         }
-    if(flag)
-    {
-        cn++;
-        use[i]=true;
-        dfs(i+1);
-        cn--;
+        return;
     }
-    if(cn+n-i>bestn)
+    use[x]=true;
+    for(int i=1; i<=n; i++)
     {
-        use[i]=false;
-        dfs(i+1);
+        if(!use[i]&&(now==-1||mapp[x][i]==now))
+        {
+            dfs(i,x,mapp[x][i],dep+1);
+            if(flag)return;
+        }
     }
+    use[x]=false;
 }
 
 int main()
@@ -104,7 +102,6 @@ int main()
     while(T--)
     {
         memset(mapp,false,sizeof(mapp));
-        memset(use,false,sizeof(use));
         cin>>n;
         for(int i=1; i<=n; i++)
             for(int j=1; j<=n-i; j++)
@@ -119,9 +116,14 @@ int main()
             cout<<"Bad Team!"<<endl;
             continue;
         }
-        cn=bestn=0;
-        dfs(1);
-        cout<<(bestn>=3?"Bad Team!":"Great Team!")<<endl;
+        flag = false;
+        for(int i=1; i<=n; i++)
+        {
+            memset(use,false,sizeof(use));
+            dfs(i,-1,-1,0);
+            if(flag)break;
+        }
+        cout<<(flag?"Bad Team!":"Great Team!")<<endl;
     }
     return 0;
 }
