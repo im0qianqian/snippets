@@ -43,19 +43,22 @@
     3
 
 
+
 ## **题意**
 
-静态查询区间第 k 大的数。
+静态查询区间第 k 小的数。
 
 
 
 ## **思路**
 
-划分树的基本应用，以下附模板。
+【划分树/主席树】 的基本应用，以下附模板。
 
 
 
 ## **AC 代码**
+
+### **划分树**
 
 ```cpp
 #include <iostream>
@@ -133,6 +136,85 @@ int main()
         {
             cin>>s>>t>>k;
             cout<<query(1,n,s,t,0,k)<<endl;
+        }
+    }
+    return 0;
+}
+```
+
+
+
+### **主席树**
+
+```cpp
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+typedef __int64 LL;
+const int maxn = 2000000;
+
+int a[maxn],b[maxn];
+int sum[maxn];
+int ls[maxn];
+int rs[maxn];
+int rk[maxn];
+int tot;
+
+void build(int &o,int l,int r)
+{
+    o=++tot;
+    sum[o]=0;
+    if(l==r)return;
+    int mid = (l+r)>>1;
+    build(ls[o],l,mid);
+    build(rs[o],mid+1,r);
+}
+
+void update(int &o,int l,int r,int last,int p)
+{
+    o = ++tot;
+    ls[o]=ls[last];
+    rs[o]=rs[last];
+    sum[o]=sum[last]+1;
+    if(l==r)return;
+    int mid = (l+r)>>1;
+    if(p<=mid)update(ls[o],l,mid,ls[last],p);
+    else update(rs[o],mid+1,r,rs[last],p);
+}
+
+int query(int L,int R,int l,int r,int k)
+{
+    if(L==R)return L;
+    int mid = (L+R)>>1;
+    int cnt = sum[ls[r]]-sum[ls[l]];
+    if(k<=cnt)return query(L,mid,ls[l],ls[r],k);
+    else return query(mid+1,R,rs[l],rs[r],k-cnt);
+}
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    int n,m;
+    while(cin>>n>>m)
+    {
+        tot=0;
+        for(int i=1; i<=n; i++)
+            cin>>a[i],b[i]=a[i];
+        sort(b+1,b+n+1);
+        int sz = unique(b+1,b+n+1)-(b+1);
+        build(rk[0],1,sz);
+        for(int i=1; i<=n; i++)
+        {
+            a[i] = lower_bound(b+1,b+n+1,a[i])-b;
+            update(rk[i],1,sz,rk[i-1],a[i]);
+        }
+        while(m--)
+        {
+            int l,r,k;
+            cin>>l>>r>>k;
+            cout<<b[query(1,sz,rk[l-1],rk[r],k)]<<endl;
         }
     }
     return 0;
