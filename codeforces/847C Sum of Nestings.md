@@ -12,7 +12,7 @@
 
 ## **Input**
 
-> The first line contains two integers n and k (1 ≤ n ≤ 3·105, 0 ≤ k ≤ 1018) — the number of opening brackets and needed total nesting.
+> The first line contains two integers n and k (1 ≤ n ≤ 3·10^5, 0 ≤ k ≤ 10^18) — the number of opening brackets and needed total nesting.
 
 
 
@@ -29,9 +29,11 @@
     3 1
 
 
+
 ## **Examples output**
 
     ()(())
+
 
 
 ## **题意**
@@ -44,9 +46,11 @@
 
 我们考虑一种嵌套最大和的情况： `((((()))))` ，此时 $n=5,k=1+2+3+4=10$ 。
 
-显然，对于 $k \in (1+2+3,1+2+3+4]$ 中的任意一个数，我们可以将其中一个括号安置在合适的层中，当然， $k$ 在其他范围时也是一样的思路。
+显然，对于 $k \in (1+2+3,1+2+3+4]$ 中的任意一个数，我们可以将原本在第四层的括号安置在合适的层中，当然， $k$ 在其他范围时也是一样的思路。
 
-而对于 $k>n \times (n-1)/2$ ，应该输出 `Impossible` ，因为在最极端的情况下都无法找到解，因此其一定不成立。
+此时这部分的序列类似于 `(((())()))` 这样的结果，假如括号没有用完，我们在最后补单独的 `()` 即可。
+
+而对于 $k>n \times (n-1)/2$ ，则应输出 `Impossible` ，因为在最极端的情况下都无法找到解，因此其一定不成立。
 
 
 
