@@ -118,7 +118,7 @@ void dfs(int x,int fa)
         if(!dfn[to])
         {
             dfs(to,x);
-            if(low[to]<dfn[to])
+            if(low[to]<low[x])
                 low[x]=low[to];
         }
         else if(instack[to]&&dfn[to]<low[x])
