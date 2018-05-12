@@ -1,5 +1,6 @@
 /*
-POJ 1011 Sticks
+
+   POJ 1011 Sticks
 */
 
 #include <stdio.h>
