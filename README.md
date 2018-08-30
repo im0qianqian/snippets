@@ -18,10 +18,33 @@ More 哒哒……
 
 ## More
 
+**ID:**
+
+Codeforces: [im0qianqian](https://codeforces.com/profile/im0qianqian)
+
+TopCoder: [im0qianqian](https://www.topcoder.com/members/im0qianqian)
+
+51Nod: [im0qianqian](https://www.51nod.com/user/index.html#!userId=17507)
+
+CodeChef: [im0qianqian](https://www.codechef.com/users/im0qianqian)
+
+ECNU: [im0qianqian](https://acm.ecnu.edu.cn/generic/31202/)
+
+HackerRank: [im0qianqian](https://www.hackerrank.com/im0qianqian)
+
+LeetCode: [im0qianqian](https://leetcode.com/im0qianqian/)
+
+---
+
 - [ ] 51Nod
 - [ ] bzoj
 - [ ] cccc
 - [ ] codeforces
+- [ ] codechef
+- [ ] ecnu
+- [ ] hackerrank
+- [ ] leetcode
+- [ ] topcoder
 - [ ] codevs
 - [ ] fzu
 - [ ] hdu
