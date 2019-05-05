@@ -28,7 +28,7 @@ TopCoder: [im0qianqian](https://www.topcoder.com/members/im0qianqian)
 
 CodeChef: [im0qianqian](https://www.codechef.com/users/im0qianqian)
 
-ECNU: [im0qianqian](https://acm.ecnu.edu.cn/generic/31202/)
+ECNU: [im0qianqian](https://acm.ecnu.edu.cn/profile/31202/)
 
 HackerRank: [im0qianqian](https://www.hackerrank.com/im0qianqian)
 
