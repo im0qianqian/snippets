@@ -40,13 +40,13 @@ class Solution {
 public:
     int minScoreTriangulation(vector<int> &A) {
         int n = A.size();
-        int dp[n + 1][n + 1];
+        int dp[n][n];
+        memset(dp, 0, sizeof(dp));
         for (int d = 2; d < n; d++) {
             for (int i = 0; i + d < n; i++) {
                 int j = i + d;
                 dp[i][j] = INT_MAX;
                 for (int k = i + 1; k < j; k++) {
-                    cout << i << " " << j << " " << k << endl;
                     dp[i][j] =
                         min(dp[i][j], dp[i][k] + dp[k][j] + A[i] * A[j] * A[k]);
                 }
