@@ -66,12 +66,12 @@
 $$
 \begin{equation}
 A =\begin{bmatrix}
-1&1&0& \cdots\ &0&1 \\\\
-1&1&1&0&\cdots\ & 0 \\\\
-0&1&1&1&0&\cdots\   \\\\
-\cdots\ &0&1&1&1&0  \\\\
-1&\cdots\ &0&0&1&1  \\\\
-1&1&\cdots\ &0&0&1  \\\\
+1&1&0& \cdots\ &0&1 \\
+1&1&1&0&\cdots\ & 0 \\
+0&1&1&1&0&\cdots\   \\
+\cdots\ &0&1&1&1&0  \\
+1&\cdots\ &0&0&1&1  \\
+1&1&\cdots\ &0&0&1  \\
 \end{bmatrix}
 \end{equation}
 $$
